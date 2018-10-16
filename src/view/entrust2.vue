@@ -271,7 +271,10 @@ export default {
     },
     mounted(){
         var that = this;
-        that.getdata(this.urls,this.types);
+        if(this.token != ''){
+
+            that.getdata(this.urls,this.types);
+        }
         eventBus.$on('toTrade',function(){
             that.isUrl = 0;
              that.isChoosed = 0;

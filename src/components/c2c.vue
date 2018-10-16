@@ -1,6 +1,7 @@
 <template>
     <div id="c2c-box" class="flex">
         <div class="c2c-l">
+            
             <ul>
                 <li class="flex" v-for="(item,index) in currency_list" :key="index" :class="index == active?'bg_active':''" :data-id="item.id" @click="currency_click(item.id,item.name,index)">
                     <div class="flex">
@@ -274,7 +275,10 @@
                             <div>{{item.pay_mode}}</div>
                             <div class="last">
                                 <div class="btn-last" @click="cancelComplete('complete',item.id)" v-if="item.status_name == '交易中'">确认</div>
+                                <!-- <div class="btn-last" @click="cancelComplete('cancel',item.id)" v-if="item.status_name == '等待中'">取消交易</div> -->
+                                <span v-if="item.status_name == '等待中'">{{item.status_name}}</span>
                                 <span v-if="item.status_name == '已成功'">{{item.status_name}}</span>
+                                <span v-if="item.status_name == '已取消'">{{item.status_name}}</span>
                             </div>
                         </li>
                         <!-- <li class="flex">
@@ -405,6 +409,9 @@ export default {
   },
   created() {
     this.token = window.localStorage.getItem("token") || "";
+    if(this.token == ''){
+        this.$router.push('/components/login');
+    }
     this.get_currency();
     this.getList(1);
     this.getList(0);

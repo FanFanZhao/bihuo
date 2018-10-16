@@ -161,6 +161,7 @@ export default {
       width: 100%;
     }
     .login-btn {
+      cursor: pointer;
       line-height: 36px;
       text-align: center;
     }

@@ -45,6 +45,9 @@ export default {
   },
   created() {
     this.token = window.localStorage.getItem("token") || "";
+    if(this.token == ''){
+      this.$router.push('/components/login');
+    }
     this.getInfo();
   },
   methods: {
