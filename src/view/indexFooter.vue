@@ -7,7 +7,7 @@
             <span>用户协议</span>
             <span>本站公告</span>
         </div>
-        <p class="">© 2013-2018 环球数贸信息平台</p>
+        <p class="">© 2018必火交易所</p>
     </div>
 </template>
 
